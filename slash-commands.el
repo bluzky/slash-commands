@@ -85,6 +85,13 @@ An alist with these keys:
     ;; Navigation - arrow keys, Emacs standard keys
     (define-key map [down] #'slash-commands-next-command)
     (define-key map [up] #'slash-commands-prev-command)
+    (define-key map "\C-n" #'slash-commands-next-command)
+    (define-key map "\C-p" #'slash-commands-prev-command)
+
+    ;; Selection
+    (define-key map (kbd "RET") #'slash-commands-select-command)
+    (define-key map (kbd "<return>") #'slash-commands-select-command)
+    (define-key map (kbd "TAB") #'slash-commands-select-command)
 
     ;; Cancellation
     (define-key map [escape] #'slash-commands-cancel)
@@ -448,11 +455,6 @@ With prefix argument ARG, turn on if positive, otherwise off."
   :lighter " /Popup"
   :keymap (let ((map (make-sparse-keymap)))
             (define-key map (kbd "/") #'slash-commands-key-pressed)
-            (define-key map (kbd "RET") (lambda ()
-                                          (interactive)
-                                          (if (alist-get 'active slash-commands--state)
-                                              (slash-commands-select-command)
-                                            (newline))))
             map))
 
 ;;;###autoload
