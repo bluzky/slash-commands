@@ -3,6 +3,7 @@
 
 A modern document editor-like slash command interface for Emacs.
 
+![Demo](./slashcommand.gif)
 
 ## Installation
 
