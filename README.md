@@ -64,9 +64,9 @@ Then add to your Emacs configuration:
 (add-hook 'org-mode-hook
           (lambda ()
             (slash-commands-register-commands
-             '(("todo" . org-insert-todo-heading)
+             '(("todo" . org-insert-todo-heading-respect-content)
                ("link" . org-insert-link)
-               ("src" . org-insert-structure-template)))))
+               ("disp" . org-export-dispatch)))))
 ```
 
 ### Customization options
